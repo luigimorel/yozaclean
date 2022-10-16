@@ -15,10 +15,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>YonjaClean - Free Nextjs & TailwindCSS Landing Page Template</title>
+        <title>YozaClean - Free Nextjs & TailwindCSS Landing Page Template</title>
         <meta
           name="description"
-          content="YonjaClean is a free landing page template built with next.js & Tailwind CSS"
+          content="YozaClean is a free landing page template built with next.js & Tailwind CSS"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -26,10 +26,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <SectionTitle
-        pretitle="YonjaClean Benefits"
+        pretitle="YozaClean Benefits"
         title=" Why should you use this landing page"
       >
-        YonjaClean is a free landing page & marketing website template for startups
+        YozaClean is a free landing page & marketing website template for startups
         and indie projects. Its built with Next.js & TailwindCSS. And its
         completely open-source.
       </SectionTitle>

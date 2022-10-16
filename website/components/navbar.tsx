@@ -32,7 +32,7 @@ export default function Navbar() {
                         className="w-8"
                       />
                     </span>
-                    <span>YonjaClean</span>
+                    <span>YozaClean</span>
                   </a>
                 </Link>
 

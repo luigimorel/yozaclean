@@ -1,23 +1,14 @@
 {
-  "name": "YonjaClean-template",
+  "name": "yozaclean",
   "version": "0.1.0",
-  "description": "YonjaClean Landing Page Template",
+  "description": "YozaClean",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://gituhb.com/web3templates/YonjaClean-template"
-  },
-  "keywords": [
-    "nextjs",
-    "tailwindcss",
-    "free"
-  ],
-  "author": "Surjith S M",
+  "author": "Luigi Morel",
   "license": "ISC",
   "dependencies": {
     "@emotion/css": "^11.10.0",

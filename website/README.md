@@ -1,2 +1,2 @@
 ### Introduction
-Website for the YonjaClean cleanliness company
+Website for the YozaClean cleanliness company

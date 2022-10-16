@@ -35,7 +35,7 @@ const benefitTwo = {
   bullets: [
     {
       title: "Mobile Responsive Template",
-      desc: "YonjaClean is designed as a mobile first responsive template.",
+      desc: "YozaClean is designed as a mobile first responsive template.",
       icon: <DeviceMobileIcon />,
     },
     {
@@ -45,7 +45,7 @@ const benefitTwo = {
     },
     {
       title: "Dark & Light Mode",
-      desc: "YonjaClean comes with a zero-config light & dark mode. ",
+      desc: "YozaClean comes with a zero-config light & dark mode. ",
       icon: <SunIcon />,
     },
   ],

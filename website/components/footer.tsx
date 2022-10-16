@@ -22,13 +22,13 @@ export default function Footer() {
                       className="w-8"
                     />
                   </span>
-                  <span>YonjaClean</span>
+                  <span>YozaClean</span>
                 </a>
               </Link>
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              YonjaClean is a free landing page & marketing website template for
+              YozaClean is a free landing page & marketing website template for
               startups and indie projects. Its built with Next.js & TailwindCSS.
               And its completely open-source.
             </div>
@@ -110,7 +110,7 @@ export default function Footer() {
         </div>
 
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. YonjaClean
+          Copyright © {new Date().getFullYear()}. YozaClean
         </div>
       </Container>
     </div>

@@ -127,12 +127,12 @@ export default function PopupWidget() {
                       />
                       <input
                         type="hidden"
-                        value={`${userName} sent a message from YonjaClean`}
+                        value={`${userName} sent a message from YozaClean`}
                         {...register("subject")}
                       />
                       <input
                         type="hidden"
-                        value="YonjaClean Template"
+                        value="YozaClean Template"
                         {...register("from_name")}
                       />
                       <input
