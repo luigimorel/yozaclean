@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+
 import Container from "./container";
 
 export default function Benefits(props) {
@@ -19,7 +20,6 @@ export default function Benefits(props) {
               height="482"
               alt="Benefits"
               layout="intrinsic"
-              placeholder="blur"
             />
           </div>
         </div>
@@ -57,7 +57,7 @@ function Benefit(props) {
   return (
     <>
       <div className="flex items-start mt-8 space-x-3">
-        <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-indigo-500 rounded-md w-11 h-11 ">
+        <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-primary rounded-md w-11 h-11 ">
           {React.cloneElement(props.icon, {
             className: "w-7 h-7 text-indigo-50",
           })}

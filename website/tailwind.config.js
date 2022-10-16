@@ -1,14 +1,14 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme")
+const colors = require("tailwindcss/colors")
 
 module.exports = {
-  mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class", // or 'media' or 'class'
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        trueGray: colors.trueGray,
+        neutral: colors.neutral,
+        primary: "#03a84e"
       },
     },
     fontFamily: {
@@ -20,4 +20,4 @@ module.exports = {
     extend: {},
   },
   plugins: [require("@tailwindcss/aspect-ratio")],
-};
+}

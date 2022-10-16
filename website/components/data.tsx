@@ -1,14 +1,9 @@
 import {
-  EmojiHappyIcon,
-  ChartSquareBarIcon,
-  CursorClickIcon,
-  DeviceMobileIcon,
-  AdjustmentsIcon,
-  SunIcon,
+    AdjustmentsIcon, ChartSquareBarIcon, CursorClickIcon, DeviceMobileIcon, EmojiHappyIcon, SunIcon
 } from "@heroicons/react/outline";
 
-import benefitOneImg from "../public/img/benefit-one.png";
-import benefitTwoImg from "../public/img/benefit-two.png";
+import benefitTwoImg from "../public/img/cleaning.svg";
+import benefitOneImg from "../public/img/cleaning1.svg";
 
 const benefitOne = {
   title: "Highlight your benefits",
@@ -40,7 +35,7 @@ const benefitTwo = {
   bullets: [
     {
       title: "Mobile Responsive Template",
-      desc: "Nextly is designed as a mobile first responsive template.",
+      desc: "YonjaClean is designed as a mobile first responsive template.",
       icon: <DeviceMobileIcon />,
     },
     {
@@ -50,7 +45,7 @@ const benefitTwo = {
     },
     {
       title: "Dark & Light Mode",
-      desc: "Nextly comes with a zero-config light & dark mode. ",
+      desc: "YonjaClean comes with a zero-config light & dark mode. ",
       icon: <SunIcon />,
     },
   ],
