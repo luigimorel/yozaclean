@@ -6,7 +6,7 @@ import Container from "./container";
 export default function Hero() {
   return (
     <>
-      <Container className="flex flex-wrap ">
+      <Container className="flex flex-wrap xl:h-screen ">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
@@ -18,7 +18,7 @@ export default function Hero() {
               perspiciatis?
             </p>
 
-            <div className="flex">
+            <div className="flex justify-center xl:justify-start">
               <a href="#">
                 <img
                   className="h-32 w-32 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64 object-contain mr-2.5"
@@ -26,7 +26,7 @@ export default function Hero() {
                   alt="playstore"
                 />
               </a>
-              <a href="https://apps.apple.com/ug/app/safarishare/id1545451416">
+              <a href="#">
                 <img
                   className="h-32 w-32 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64 object-contain"
                   src="./img/appstore.svg"

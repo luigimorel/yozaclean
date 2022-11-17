@@ -3,11 +3,11 @@ import Container from "./container";
 export default function SectionTitle(props) {
   return (
     <Container
-      className={`flex w-full flex-col mt-4 ${
-        props.align === "left" ? "" : "items-center justify-center text-center"
+      className={`flex w-full flex-col ${
+        props.align === "left" ? "" : "items-center justify-center w-1/2"
       }`}>
       {props.pretitle && (
-        <div className="text-sm font-bold tracking-wider text-primary uppercase">
+        <div className="text-lg font-bold tracking-wider text-primary uppercase">
           {props.pretitle}
         </div>
       )}

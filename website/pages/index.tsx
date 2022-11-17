@@ -1,13 +1,11 @@
 import Head from "next/head";
 
 import Benefits from "../components/benefits";
-import Cta from "../components/cta";
 import { benefitOne, benefitTwo } from "../components/data";
 import Faq from "../components/faq";
 import Footer from "../components/footer";
 import Hero from "../components/hero";
 import Navbar from "../components/navbar";
-import PopupWidget from "../components/popupWidget";
 import SectionTitle from "../components/sectionTitle";
 import Video from "../components/video";
 
@@ -37,7 +35,7 @@ export default function Home() {
       <Benefits imgPos="right" data={benefitTwo} />
       <SectionTitle
         pretitle="Watch a video"
-        title="Learn how to fullfil your needs"
+        title="Learn how YozaClean works"
       >
         This section is to highlight a promo or demo video of your product.
         Analysts says a landing page with video has 3% more conversion rate. So,
@@ -50,9 +48,8 @@ export default function Home() {
         conversion rate as well as support or chat requests.
       </SectionTitle>
       <Faq />
-      <Cta />
       <Footer />
-      <PopupWidget />
+      {/* <PopupWidget /> */}
     </>
   );
 }

@@ -2,121 +2,6 @@ import Link from "next/link";
 
 import Container from "./container";
 
-export default function Footer() {
-  const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
-  const legal = ["Terms", "Privacy", "Legal"];
-  return (
-    <div className="relative">
-      <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-neutral-700 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <div>
-              <Link href="/">
-                <a className="flex items-center space-x-2 text-2xl font-medium text-primary dark:text-gray-100">
-                  <span>
-                    <img
-                      src="/img/logo.svg"
-                      alt="N"
-                      width="32"
-                      height="32"
-                      className="w-8"
-                    />
-                  </span>
-                  <span>YozaClean</span>
-                </a>
-              </Link>
-            </div>
-
-            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              YozaClean is a free landing page & marketing website template for
-              startups and indie projects. Its built with Next.js & TailwindCSS.
-              And its completely open-source.
-            </div>
-
-            {/* Start of the icons */}
-            <div className="flex">
-              <a href="#">
-                <img
-                  className="h-32 w-32 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64 object-contain mr-2.5"
-                  src="./img/playstore.png"
-                  alt="playstore"
-                />
-              </a>
-              <a href="https://apps.apple.com/ug/app/safarishare/id1545451416">
-                <img
-                  className="h-32 w-32 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64 object-contain"
-                  src="./img/appstore.svg"
-                  alt="appstore"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {navigation.map((item, index) => (
-                <Link key={index} href="/">
-                  <a className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
-                    {item}
-                  </a>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {legal.map((item, index) => (
-                <Link key={index} href="/">
-                  <a className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
-                    {item}
-                  </a>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="">
-            <div>Follow us</div>
-            <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              <a
-                href="https://twitter.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Twitter</span>
-                <Twitter />
-              </a>
-              <a
-                href="https://facebook.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Facebook</span>
-                <Facebook />
-              </a>
-              <a
-                href="https://instagram.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Instagram</span>
-                <Instagram />
-              </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener">
-                <span className="sr-only">Linkedin</span>
-                <Linkedin />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. YozaClean
-        </div>
-      </Container>
-    </div>
-  );
-}
-
 const Twitter = ({ size = 24 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -163,3 +48,114 @@ const Linkedin = ({ size = 24 }) => (
     <path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.27 20.1H3.65V9.24h3.62V20.1zM5.47 7.76h-.03c-1.22 0-2-.83-2-1.87 0-1.06.8-1.87 2.05-1.87 1.24 0 2 .8 2.02 1.87 0 1.04-.78 1.87-2.05 1.87zM20.34 20.1h-3.63v-5.8c0-1.45-.52-2.45-1.83-2.45-1 0-1.6.67-1.87 1.32-.1.23-.11.55-.11.88v6.05H9.28s.05-9.82 0-10.84h3.63v1.54a3.6 3.6 0 0 1 3.26-1.8c2.39 0 4.18 1.56 4.18 4.89v6.21z" />
   </svg>
 );
+
+const socialMediaLinks = [
+  {
+    id: 1,
+    srText: "Twitter",
+    link: "https://twitter.com/yozaclean",
+    icon: <Twitter/>,
+  },
+  {
+    id: 2,
+    srText: "Facebook",
+    link: "https://facebook.com/yozaclean",
+    icon: <Facebook/>,
+  },
+  {
+    id: 3,
+    srText: "Instagram",
+    link: "https://instagram.com/yozaclean",
+    icon: <Instagram/>,
+  },
+  {
+    id: 4,
+    srText: "Linkedin",
+    link: "https://linkedin.com/yozaclean",
+    icon: <Linkedin/>,
+  },
+];
+
+export default function Footer() {
+  const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
+  const legal = ["Terms", "Privacy", "Legal"];
+  return (
+    <div className="relative">
+      <Container>
+        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-neutral-700 lg:grid-cols-5">
+          <div className="lg:col-span-2">
+            <div>
+              <Link href="/">
+                <a className="flex items-center space-x-2 text-2xl font-medium text-primary dark:text-gray-100">
+                  <span>YozaClean</span>
+                </a>
+              </Link>
+            </div>
+
+            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
+              YozaClean is a free landing page & marketing website template for
+              startups and indie projects. Its built with Next.js & TailwindCSS.
+              And its completely open-source.
+            </div>
+
+            {/* Start of the icons */}
+            <div className="flex">
+              <a href="#">
+                <img
+                  className="h-32 w-32 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64 object-contain mr-2.5"
+                  src="./img/playstore.png"
+                  alt="playstore"
+                />
+              </a>
+              <a href="#">
+                <img
+                  className="h-32 w-32 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64 object-contain"
+                  src="./img/appstore.svg"
+                  alt="appstore"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+              {navigation.map((item, index) => (
+                <Link key={index} href="/">
+                  <a className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
+                    {item}
+                  </a>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+              {legal.map((item, index) => (
+                <Link key={index} href="/">
+                  <a className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
+                    {item}
+                  </a>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="">
+            <div>Follow us</div>
+            <div className="flex justify-center xl:justify-start mt-5 space-x-10 text-gray-400 dark:text-gray-500">
+              {socialMediaLinks.map((x) => (
+                <a href={x.link} target="_blank" rel="noopener">
+                  <span className="sr-only">{x.srText}</span>
+                  {x.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
+          Copyright © {new Date().getFullYear()}. YozaClean
+        </div>
+      </Container>
+    </div>
+  );
+}
