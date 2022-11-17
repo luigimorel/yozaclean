@@ -143,7 +143,7 @@ export default function Footer() {
             <div>Follow us</div>
             <div className="flex justify-center xl:justify-start mt-5 space-x-10 text-gray-400 dark:text-gray-500">
               {socialMediaLinks.map((x) => (
-                <a href={x.link} target="_blank" rel="noopener">
+                <a href={x.link} key={x.id} target="_blank" rel="noopener">
                   <span className="sr-only">{x.srText}</span>
                   {x.icon}
                 </a>
