@@ -54,25 +54,25 @@ const socialMediaLinks = [
     id: 1,
     srText: "Twitter",
     link: "https://twitter.com/yozaclean",
-    icon: <Twitter/>,
+    icon: <Twitter />,
   },
   {
     id: 2,
     srText: "Facebook",
     link: "https://facebook.com/yozaclean",
-    icon: <Facebook/>,
+    icon: <Facebook />,
   },
   {
     id: 3,
     srText: "Instagram",
     link: "https://instagram.com/yozaclean",
-    icon: <Instagram/>,
+    icon: <Instagram />,
   },
   {
     id: 4,
     srText: "Linkedin",
     link: "https://linkedin.com/yozaclean",
-    icon: <Linkedin/>,
+    icon: <Linkedin />,
   },
 ];
 
@@ -96,6 +96,15 @@ export default function Footer() {
               YozaClean is a free landing page & marketing website template for
               startups and indie projects. Its built with Next.js & TailwindCSS.
               And its completely open-source.
+            </div>
+
+            <div className="flex justify-center xl:justify-start mt-5 space-x-10 text-gray-400 dark:text-gray-500">
+              {socialMediaLinks.map((x) => (
+                <a href={x.link} key={x.id} target="_blank" rel="noopener">
+                  <span className="sr-only">{x.srText}</span>
+                  {x.icon}
+                </a>
+              ))}
             </div>
 
             {/* Start of the icons */}
