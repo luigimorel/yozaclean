@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>YozaClean - Free Nextjs & TailwindCSS Landing Page Template</title>
+        <title>YozaClean - Get all your cleaning done with a tap of a button</title>
         <meta
           name="description"
-          content="YozaClean is a free landing page template built with next.js & Tailwind CSS"
+          content="YozaClean - Get all your cleaning done with a tap of a button"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
