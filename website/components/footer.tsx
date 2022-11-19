@@ -78,7 +78,7 @@ const socialMediaLinks = [
 ];
 
 export default function Footer() {
-  const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
+  const navigation = ["Product", "Features", "Company", "Blog"];
   const legal = ["Terms", "Privacy", "Legal"];
   return (
     <div className="relative">
@@ -93,13 +93,12 @@ export default function Footer() {
               </Link>
             </div>
 
-            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              YozaClean is a free landing page & marketing website template for
-              startups and indie projects. Its built with Next.js & TailwindCSS.
-              And its completely open-source.
+            <div className="max-w-md mt-4 text-gray-700 dark:text-gray-300">
+              YozaClean - cleaning services at the tap of <br /> a button for
+              both commercial and domestic needs.
             </div>
 
-            <div className="flex justify-center xl:justify-start mt-5 space-x-10 text-gray-400 dark:text-gray-500">
+            <div className="flex justify-center xl:justify-start mt-5 space-x-10 text-gray-700 dark:text-gray-300">
               {socialMediaLinks.map((x) => (
                 <a href={x.link} key={x.id} target="_blank" rel="noopener">
                   <span className="sr-only">{x.srText}</span>
@@ -129,9 +128,10 @@ export default function Footer() {
 
           <div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+              <p>Company</p>
               {navigation.map((item, index) => (
                 <Link key={index} href="/">
-                  <a className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
+                  <a className="w-full px-4 py-2 text-gray-700 rounded-md dark:text-gray-300 hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
                     {item}
                   </a>
                 </Link>
@@ -139,33 +139,32 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+            <h6 className=" font-bold">Get in touch</h6>
+            <ul>
+              <li>
+                Email:
+                <a href="mailto:hello@yozaclean.com">hello@yozaclean.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <div className=" ">
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+              <div>Legal</div>
               {legal.map((item, index) => (
                 <Link key={index} href="/">
-                  <a className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
+                  <a className="w-full px-4 py-2 text-gray-700 rounded-md dark:text-gray-300 hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:focus:bg-neutral-700">
                     {item}
                   </a>
                 </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="">
-            <div>Follow us</div>
-            <div className="flex justify-center xl:justify-start mt-5 space-x-10 text-gray-400 dark:text-gray-500">
-              {socialMediaLinks.map((x) => (
-                <a href={x.link} key={x.id} target="_blank" rel="noopener">
-                  <span className="sr-only">{x.srText}</span>
-                  {x.icon}
-                </a>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. YozaClean
+        <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-300">
+          Copyright &copy; {new Date().getFullYear()} YozaClean
         </div>
       </Container>
     </div>
