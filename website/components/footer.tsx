@@ -88,14 +88,14 @@ export default function Footer() {
             <div>
               <Link href="/">
                 <a className="flex items-center space-x-2 text-2xl font-medium text-primary dark:text-gray-100">
-                  <span>YozaClean</span>
+                  <span className=" font-bold">YozaClean</span>
                 </a>
               </Link>
             </div>
 
-            <div className="max-w-md mt-4 text-gray-700 dark:text-gray-300">
-              YozaClean - cleaning services at the tap of <br /> a button for
-              both commercial and domestic needs.
+            <div className="max-w-sm mt-4 text-gray-700 dark:text-gray-300">
+              YozaClean - cleaning services at the tap of  a button for
+              both your commercial and domestic needs.
             </div>
 
             <div className="flex justify-center xl:justify-start mt-5 space-x-10 text-gray-700 dark:text-gray-300">

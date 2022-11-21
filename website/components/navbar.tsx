@@ -5,11 +5,7 @@ import { Disclosure } from "@headlessui/react";
 import ThemeChanger from "./DarkSwitch";
 
 export default function Navbar() {
-  const navigation = [
-    "Product",
-    "Pricing",
-    "Contact Us",
-  ];
+  const navigation = ["Product", "Pricing", "Contact Us"];
 
   return (
     <div className="w-full ">
@@ -21,7 +17,7 @@ export default function Navbar() {
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <Link href="/">
                   <a className="flex items-center space-x-2 text-2xl font-medium text-primary dark:text-gray-100">
-                    <span>YozaClean</span>
+                    <span className=" font-bold">YozaClean</span>
                   </a>
                 </Link>
 
@@ -41,6 +37,7 @@ export default function Navbar() {
                         d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
                       />
                     )}
+
                     {!open && (
                       <path
                         fillRule="evenodd"
@@ -59,6 +56,7 @@ export default function Navbar() {
                         </a>
                       </Link>
                     ))}
+
                     <Link href="/">
                       <a className="w-full px-6 py-2 mt-3 text-center text-white bg-primary rounded-md lg:ml-5">
                         Create Account
