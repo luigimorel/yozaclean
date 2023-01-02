@@ -1,2 +1,3 @@
 ### Introduction
-Website for the YozaClean cleanliness company
+
+Website for the YozaClean

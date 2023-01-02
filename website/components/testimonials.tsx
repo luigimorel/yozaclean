@@ -1,10 +1,9 @@
-import Image from "next/image";
-import React from "react";
-import Container from "./container";
+import Image from 'next/image';
+import Container from './container';
 
-import userOneImg from "../public/img/user1.jpg";
-import userTwoImg from "../public/img/user2.jpg";
-import userThreeImg from "../public/img/user3.jpg";
+import userOneImg from '../public/img/user1.jpg';
+import userTwoImg from '../public/img/user2.jpg';
+import userThreeImg from '../public/img/user3.jpg';
 
 export default function Testimonials() {
   return (
@@ -81,10 +80,10 @@ function Avatar(props) {
 function Mark(props) {
   return (
     <>
-      {" "}
+      {' '}
       <mark className="text-indigo-800 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
         {props.children}
-      </mark>{" "}
+      </mark>{' '}
     </>
   );
 }

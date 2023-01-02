@@ -1,9 +1,9 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
-import Container from "./container";
+import Container from './container';
 
-export default function Benefits(props) {
+export default function Benefits(props: any) {
   const { data } = props;
 
   return (
@@ -11,7 +11,7 @@ export default function Benefits(props) {
       <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
         <div
           className={`flex items-center justify-center w-full lg:w-1/2 ${
-            props.imgPos === "right" ? "lg:order-1" : ""
+            props.imgPos === 'right' ? 'lg:order-1' : ''
           }`}>
           <div>
             <Image
@@ -26,7 +26,7 @@ export default function Benefits(props) {
 
         <div
           className={`flex flex-wrap items-center w-full lg:w-1/2 ${
-            props.imgPos === "right" ? "lg:justify-end" : ""
+            props.imgPos === 'right' ? 'lg:justify-end' : ''
           }`}>
           <div>
             <div className="flex flex-col w-full mt-4">
@@ -59,7 +59,7 @@ function Benefit(props) {
       <div className="flex items-start mt-8 space-x-3">
         <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-primary rounded-md w-11 h-11 ">
           {React.cloneElement(props.icon, {
-            className: "w-7 h-7 text-indigo-50",
+            className: 'w-7 h-7 text-indigo-50',
           })}
         </div>
         <div>

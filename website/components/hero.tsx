@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import heroImg from "../public/img/mainshape.png";
-import Container from "./container";
+import heroImg from '../public/img/mainshape.png';
+import Container from './container';
 
 export default function Hero() {
   return (

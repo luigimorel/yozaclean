@@ -1,11 +1,11 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { Disclosure } from "@headlessui/react";
+import { Disclosure } from '@headlessui/react';
 
-import ThemeChanger from "./DarkSwitch";
+import ThemeChanger from './DarkSwitch';
 
 export default function Navbar() {
-  const navigation = ["Product", "Pricing", "Contact Us"];
+  const navigation = ['Product', 'Pricing', 'Contact Us'];
 
   return (
     <div className="w-full ">
@@ -23,13 +23,11 @@ export default function Navbar() {
 
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-neutral-700"
-                >
+                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-primary focus:text-primary focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-neutral-700">
                   <svg
                     className="w-6 h-6 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     {open && (
                       <path
                         fillRule="evenodd"
@@ -64,7 +62,7 @@ export default function Navbar() {
                     </Link>
                   </>
                 </Disclosure.Panel>
-               </div>
+              </div>
             </>
           )}
         </Disclosure>

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Container from "./container";
+import Container from './container';
 
 export default function Video() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -36,7 +36,6 @@ export default function Video() {
               allowFullScreen></iframe>
           )}
         </div>
-
       </div>
     </Container>
   );

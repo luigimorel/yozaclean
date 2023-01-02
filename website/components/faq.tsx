@@ -1,7 +1,7 @@
-import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/solid";
+import { Disclosure } from '@headlessui/react';
+import { ChevronUpIcon } from '@heroicons/react/solid';
 
-import Container from "./container";
+import Container from './container';
 
 export default function Faq() {
   return (
@@ -16,7 +16,7 @@ export default function Faq() {
                     <span>{item.question}</span>
                     <ChevronUpIcon
                       className={`${
-                        open ? "transform rotate-180" : ""
+                        open ? 'transform rotate-180' : ''
                       } w-5 h-5 text-primary`}
                     />
                   </Disclosure.Button>
@@ -35,20 +35,20 @@ export default function Faq() {
 
 const faqdata = [
   {
-    question: "Is this template completely free to use?",
-    answer: "Yes, this template is completely free to use.",
+    question: 'Is this template completely free to use?',
+    answer: 'Yes, this template is completely free to use.',
   },
   {
-    question: "Can I use it in a commercial project?",
-    answer: "Yes, this you can.",
+    question: 'Can I use it in a commercial project?',
+    answer: 'Yes, this you can.',
   },
   {
-    question: "What is your refund policy? ",
+    question: 'What is your refund policy? ',
     answer:
       "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
   },
   {
-    question: "Do you offer technical support? ",
+    question: 'Do you offer technical support? ',
     answer:
       "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
   },
