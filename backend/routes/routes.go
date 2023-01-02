@@ -25,11 +25,11 @@ func Routes() {
 	router.PathPrefix("/api/v1/swagger/").Handler(httpSwagger.WrapHandler)
 
 	// Home
-	// TODO: Enable auth again
 	router.HandleFunc("/", helpers.SetMiddlewareJSON(controllers.Home)).Methods("GET")
 
 	// Auth
-	router.HandleFunc("/api/v1/	", controllers.Login).Methods("POST")
+	// TODO: Enable auth again
+	router.HandleFunc("/api/v1/login", controllers.Login).Methods("POST")
 
 	// Users
 	router.HandleFunc("/api/v1/users", controllers.GetUsers).Methods("GET")

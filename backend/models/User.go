@@ -79,7 +79,7 @@ func (user *User) BeforeSave(db *gorm.DB) error {
 	}
 
 	if count > 0 {
-		return fmt.Errorf("email already exists")
+		return fmt.Errorf("email is already in use")
 	}
 	// Phone handler
 
@@ -89,25 +89,11 @@ func (user *User) BeforeSave(db *gorm.DB) error {
 		return err
 	}
 	if count > 0 {
-		return fmt.Errorf("phone already exists")
+		return fmt.Errorf("phone number is already in use")
 	}
 
 	return nil
 }
-
-// func (user *User) BeforeSavePhone(db *gorm.DB) error {
-// 	var count int64
-
-// 	err = db.Model(&User{}).Where("phone = ?", user.Phone).Count(&count).Error
-
-// 	if err != nil {
-// 		return err
-// 	}
-// 	if count > 0 {
-// 		return fmt.Errorf("phone already exists")
-// 	}
-// 	return nil
-// }
 
 func (user *User) Prepare() {
 	user.ID = 0
