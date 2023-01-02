@@ -1,0 +1,40 @@
+version: '3'
+services:
+  app:
+    container_name: event_tickets_app
+    build: .
+    ports:
+      - 8080:${DB_PORT} # Change this if you decide to use a static port number in the app
+    restart: on-failure
+    volumes:
+      - api:/usr/src/app/
+    depends_on:
+      - postgres
+
+    networks:
+      - event_tickets
+
+  postgres:
+    image: postgres:latest
+    container_name: full_db
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DATABASE_HOST=${DB_HOST}
+    ports:
+      - '5432:5432'
+    volumes:
+      - database_postgres:/var/lib/postgresql/data
+    networks:
+      - event_tickets
+
+volumes:
+  api:
+  database_postgres:
+
+
+networks:
+  event_tickets:
+
+
