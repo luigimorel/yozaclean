@@ -62,8 +62,18 @@ func (user *User) BeforeSaveUser() error {
 }
 
 func (user *User) BeforeSave(db *gorm.DB) error {
+	var err error
+	// Password handler
+	hashedPassword, _ := Hash(user.Password)
+	if err != nil {
+		return err
+	}
+
+	user.Password = string(hashedPassword)
+
+	// Email handler
 	var count int64
-	err := db.Model(&User{}).Where("email = ?", user.Email).Count(&count).Error
+	err = db.Model(&User{}).Where("email = ?", user.Email).Count(&count).Error
 	if err != nil {
 		return err
 	}
@@ -71,14 +81,9 @@ func (user *User) BeforeSave(db *gorm.DB) error {
 	if count > 0 {
 		return fmt.Errorf("email already exists")
 	}
+	// Phone handler
 
-	return nil
-}
-
-func (user *User) BeforeSavePhone(db *gorm.DB) error {
-	var count int64
-
-	err := db.Model(&User{}).Where("phone = ?", user.Phone).Count(&count).Error
+	err = db.Model(&User{}).Where("phone = ?", user.Phone).Count(&count).Error
 
 	if err != nil {
 		return err
@@ -86,8 +91,23 @@ func (user *User) BeforeSavePhone(db *gorm.DB) error {
 	if count > 0 {
 		return fmt.Errorf("phone already exists")
 	}
+
 	return nil
 }
+
+// func (user *User) BeforeSavePhone(db *gorm.DB) error {
+// 	var count int64
+
+// 	err = db.Model(&User{}).Where("phone = ?", user.Phone).Count(&count).Error
+
+// 	if err != nil {
+// 		return err
+// 	}
+// 	if count > 0 {
+// 		return fmt.Errorf("phone already exists")
+// 	}
+// 	return nil
+// }
 
 func (user *User) Prepare() {
 	user.ID = 0

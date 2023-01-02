@@ -65,21 +65,21 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user.Prepare()
-	err = user.BeforeSaveUser()
-	if err != nil {
-		fmt.Printf("password hashing error: %v", err)
-	}
+	// user.Prepare()
+	// err = user.BeforeSaveUser()
+	// if err != nil {
+	// 	fmt.Printf("password hashing error: %v", err)
+	// }
 
 	err = user.BeforeSave(config.DB)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	err = user.BeforeSavePhone(config.DB)
-	if err != nil {
-		fmt.Println(err)
-	}
+	// err = user.BeforeSavePhone(config.DB)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
 
 	err = user.Validate("")
 	if err != nil {
