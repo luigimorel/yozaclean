@@ -7,8 +7,8 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
+    return Scaffold(
+      body: Container(
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
