@@ -65,21 +65,10 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// user.Prepare()
-	// err = user.BeforeSaveUser()
-	// if err != nil {
-	// 	fmt.Printf("password hashing error: %v", err)
-	// }
-
 	err = user.BeforeSave(config.DB)
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	// err = user.BeforeSavePhone(config.DB)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
 
 	err = user.Validate("")
 	if err != nil {
@@ -87,10 +76,11 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	success := "record has been created"
 	json.NewDecoder(r.Body).Decode(&user)
 	config.DB.Save(&user)
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(user)
+	json.NewEncoder(w).Encode(success)
 
 }
 
@@ -104,12 +94,13 @@ func UpdateUserById(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var user models.User
+	success := "record has been updated"
 
 	config.DB.First(&user, userId)
 	json.NewDecoder(r.Body).Decode(&user)
 	config.DB.Save(&user)
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(user)
+	json.NewEncoder(w).Encode(success)
 }
 
 // DeleteUserById - Updates a single user by the ID specified.

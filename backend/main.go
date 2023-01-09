@@ -7,5 +7,6 @@ import (
 
 func main() {
 	config.Config()
+	// config.FirebaseConfig()
 	routes.Routes()
 }

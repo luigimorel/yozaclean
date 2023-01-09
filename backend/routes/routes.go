@@ -33,10 +33,10 @@ func Routes() {
 
 	// Users
 	router.HandleFunc("/api/v1/users", controllers.GetUsers).Methods("GET")
-	router.HandleFunc("/api/v1/user/{id}", helpers.SetMiddlewareJSON(controllers.GetUserById)).Methods("GET")
+	router.HandleFunc("/api/v1/users/{id}", helpers.SetMiddlewareJSON(controllers.GetUserById)).Methods("GET")
 	router.HandleFunc("/api/v1/register", helpers.SetMiddlewareJSON(controllers.CreateUser)).Methods("POST")
-	router.HandleFunc("/api/v1/user/{id}", controllers.DeleteUserById).Methods("DELETE")
-	router.HandleFunc("/api/v1/user/{id}", controllers.UpdateUserById).Methods("PATCH")
+	router.HandleFunc("/api/v1/users/{id}", controllers.DeleteUserById).Methods("DELETE")
+	router.HandleFunc("/api/v1/users/{id}", controllers.UpdateUserById).Methods("PATCH")
 
 	// Server port
 	http.ListenAndServe(":"+port, corsHandler)
