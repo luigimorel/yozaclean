@@ -13,8 +13,8 @@ export default function Hero() {
               Satsifying your cleaning needs.
             </h1>
             <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
-              For cleaning from your car to your home to your office or
-              workplace. Download the today.
+              For quality cleaning services from your car to your home, to your
+              office or workplace. Download the app today.
             </p>
 
             <div className="flex justify-center xl:justify-start">
@@ -26,9 +26,6 @@ export default function Hero() {
                     alt="playstore"
                   />
                 </a>
-                <p className=" text-base text-center text-gray-700 dark:text-white md:-mt-20 -mt-10">
-                  Coming soon
-                </p>
               </div>
 
               <div className="flex flex-col">
@@ -39,9 +36,6 @@ export default function Hero() {
                     alt="appstore"
                   />
                 </a>
-                <p className=" text-center text-base text-gray-700 dark:text-white -mt-10 md:-mt-20">
-                  Coming soon
-                </p>
               </div>
             </div>
           </div>
