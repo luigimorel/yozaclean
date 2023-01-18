@@ -1,7 +1,6 @@
 import 'package:apps/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
-import './../components/link_button.dart';
 import '../themes/colors.dart';
 
 class SignUp extends StatefulWidget {
@@ -20,21 +19,23 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 277,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/upper.png"), fit: BoxFit.cover),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 277,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/upper.png"), fit: BoxFit.cover),
+              ),
             ),
-          ),
-          Expanded(
-            child: Padding(
+            Expanded(
+              child: Padding(
                 padding: const EdgeInsets.fromLTRB(38, 40, 38, 0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Padding(
                       padding: EdgeInsets.only(bottom: 24.0),
@@ -76,6 +77,9 @@ class _SignUpState extends State<SignUp> {
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 14),
                               decoration: const InputDecoration(
+                                prefixText: "+256",
+                                prefixStyle: TextStyle(
+                                    fontSize: 14, color: Colors.black),
                                 prefixIcon: ImageIcon(
                                   AssetImage(
                                     'icons/flags/png/ug.png',
@@ -83,8 +87,11 @@ class _SignUpState extends State<SignUp> {
                                   ),
                                   size: 16,
                                 ),
-                                hintText: '+256',
-                                hintStyle: TextStyle(fontSize: 12),
+                                hintText: '702 123 567',
+                                hintStyle: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                ),
                               ),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -123,67 +130,49 @@ class _SignUpState extends State<SignUp> {
                     const SizedBox(
                       height: 32,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 44),
-                      child: Text(
-                        "By signing  up, you’re agreeing to our  Terms  & Conditions and Privacy Policy",
-                        style: TextStyle(fontSize: 14, color: Colors.black87),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Login()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                CustomTheme.defaultTheme.primaryColor,
-                            minimumSize: const Size.fromHeight(50)),
-                        child: const Text(
-                          "Create Account",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: 'Already have an account? ',
-                          style: Theme.of(context).textTheme.bodySmall,
-                          children: <InlineSpan>[
-                            WidgetSpan(
-                              alignment: PlaceholderAlignment.baseline,
-                              baseline: TextBaseline.alphabetic,
+                    Align(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(bottom: 44),
+                            child: Text(
+                              "By signing  up, you’re agreeing to our  Terms  & Conditions and Privacy Policy",
                               style: TextStyle(
-                                  color: CustomTheme.defaultTheme.primaryColor),
-                              child: const LinkButton(
-                                  urlLabel: "Login", url: "/login"),
+                                  fontSize: 14, color: Colors.black87),
                             ),
-                            const TextSpan(
-                              text: ' and ',
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Login()),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      CustomTheme.defaultTheme.primaryColor,
+                                  minimumSize: const Size.fromHeight(50)),
+                              child: const Text(
+                                "Create Account",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.normal),
+                              ),
                             ),
-                            const WidgetSpan(
-                              alignment: PlaceholderAlignment.baseline,
-                              baseline: TextBaseline.alphabetic,
-                              child: LinkButton(
-                                  urlLabel: "Privacy Policy",
-                                  url: "https://example.com/privacy-policy"),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     )
                   ],
-                )),
-          )
-        ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

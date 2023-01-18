@@ -6,16 +6,17 @@ import 'package:apps/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const YozaCleanApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class YozaCleanApp extends StatelessWidget {
+  const YozaCleanApp({super.key});
 
 // Root of app
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         "/": (context) => const OnboardingScreen(),
         "/signup": (context) => const SignUp(),
