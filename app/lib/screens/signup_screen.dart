@@ -1,8 +1,8 @@
 import 'package:apps/screens/login_screen.dart';
+import 'package:apps/themes/colors.dart';
+import 'package:apps/widgets/button.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-
-import './../components/link_button.dart';
-import '../themes/colors.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -11,8 +11,21 @@ class SignUp extends StatefulWidget {
   State<SignUp> createState() => _SignUpState();
 }
 
-final _phoneController = TextEditingController();
-final _nameController = TextEditingController();
+TextEditingController _phoneController = TextEditingController();
+// String phoneNumber = "";
+
+// void _onCountryChange(CountryCode countryCode) {
+//   phoneNumber = countryCode.toString();
+//   print("New Country selected: " + countryCode.toString());
+// }
+
+// void check() {
+//   print('Full Text: ' + phoneNumber + _phoneController.text);
+// }
+
+// final _phoneController = TextEditingController();
+final _firstNameController = TextEditingController();
+final _lastNameController = TextEditingController();
 final _emailController = TextEditingController();
 final _formKey = GlobalKey<FormState>();
 
@@ -20,170 +33,241 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 277,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/upper.png"), fit: BoxFit.cover),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-                padding: const EdgeInsets.fromLTRB(38, 40, 38, 0),
-                child: Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 24.0),
-                      child: Text(
-                        "Sign Up",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Form(
-                        key: _formKey,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextFormField(
-                              controller: _nameController,
-                              keyboardType: TextInputType.phone,
-                              style: const TextStyle(
-                                  color: Colors.black, fontSize: 14),
-                              decoration: const InputDecoration(
-                                  prefixIcon: Icon(Icons.flag),
-                                  hintText: 'Name',
-                                  hintStyle: TextStyle(fontSize: 12)),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter your name";
-                                }
-                                return null;
-                              },
-                            ),
-                            TextFormField(
-                              controller: _phoneController,
-                              keyboardType: TextInputType.number,
-                              style: const TextStyle(
-                                  color: Colors.black, fontSize: 14),
-                              decoration: const InputDecoration(
-                                prefixIcon: ImageIcon(
-                                  AssetImage(
-                                    'icons/flags/png/ug.png',
-                                    package: "country_icons",
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.only(bottom: 24.0),
+                                  child: Text(
+                                    'Sign Up',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                  size: 16,
                                 ),
-                                hintText: '+256',
-                                hintStyle: TextStyle(fontSize: 12),
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter phone number";
-                                }
-                                return null;
-                              },
-                            ),
-                            TextFormField(
-                              controller: _emailController,
-                              keyboardType: TextInputType.emailAddress,
-                              style: const TextStyle(
-                                  color: Colors.black, fontSize: 14),
-                              decoration: const InputDecoration(
-                                  prefixIcon: Icon(
-                                    Icons.alternate_email_sharp,
-                                    size: 14,
+                                Form(
+                                  key: _formKey,
+                                  child: Column(
+                                    children: [
+                                      TextFormField(
+                                        controller: _firstNameController,
+                                        keyboardType: TextInputType.phone,
+                                        style: const TextStyle(
+                                            color: Colors.black87,
+                                            fontSize: 14),
+                                        decoration: InputDecoration(
+                                            enabledBorder:
+                                                const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(Radius
+                                                            .circular(4)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey)),
+                                            focusedBorder:
+                                                const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(4)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey)),
+                                            filled: true,
+                                            hintText: 'First Name',
+                                            fillColor: Colors.grey[100],
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 12),
+                                            prefixIcon:
+                                                const Icon(Icons.person)),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter your first name';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                      TextFormField(
+                                        controller: _lastNameController,
+                                        keyboardType: TextInputType.phone,
+                                        style: const TextStyle(
+                                            color: Colors.black87,
+                                            fontSize: 14),
+                                        decoration: InputDecoration(
+                                            enabledBorder:
+                                                const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(Radius
+                                                            .circular(4)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey)),
+                                            focusedBorder:
+                                                const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(4)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey)),
+                                            filled: true,
+                                            hintText: 'Last Name',
+                                            fillColor: Colors.grey[100],
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 12),
+                                            prefixIcon:
+                                                const Icon(Icons.person)),
+                                        validator: (value) {
+                                          if (value == null ||
+                                              value.isEmpty ||
+                                              value.length < 3) {
+                                            return 'Please enter your last name';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                      TextFormField(
+                                        controller: _phoneController,
+                                        keyboardType: TextInputType.number,
+                                        style: const TextStyle(
+                                            color: Colors.black87,
+                                            fontSize: 14),
+                                        decoration: InputDecoration(
+                                          enabledBorder:
+                                              const OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(4)),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey)),
+                                          focusedBorder:
+                                              const OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(4)),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey)),
+                                          filled: true,
+                                          hintText: '700 000 000',
+                                          fillColor: Colors.grey[100],
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 12),
+                                          prefixIcon: CountryCodePicker(
+                                            initialSelection: '+256',
+                                            favorite: const ['+256', 'UG'],
+                                            textStyle: const TextStyle(
+                                                color: Colors.black54),
+                                            showFlag: true,
+                                          ),
+                                        ),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter phone number';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                      TextFormField(
+                                        controller: _emailController,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        style: const TextStyle(
+                                            color: Colors.black87,
+                                            fontSize: 14),
+                                        decoration: InputDecoration(
+                                            enabledBorder:
+                                                const OutlineInputBorder(
+                                                    borderRadius: BorderRadius.all(
+                                                        Radius.circular(4)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey)),
+                                            focusedBorder:
+                                                const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(4)),
+                                                    borderSide: BorderSide(
+                                                        color: Colors.grey)),
+                                            filled: true,
+                                            hintText: 'Email',
+                                            fillColor: Colors.grey[100],
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 12),
+                                            prefixIconColor: Colors.grey[300],
+                                            prefixIcon: const Icon(
+                                                Icons.alternate_email),
+                                            focusColor: CustomTheme
+                                                .defaultTheme.primaryColor,
+                                            iconColor: Colors.grey),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter email address';
+                                          }
+                                          final regex =
+                                              RegExp('[^@]+@[^.]+..+');
+                                          if (!regex.hasMatch(value)) {
+                                            return 'Enter a valid email';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                    ],
                                   ),
-                                  hintText: 'Email address',
-                                  hintStyle: TextStyle(fontSize: 12)),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter email address";
-                                }
-                                final regex = RegExp('[^@]+@[^\.]+\..+');
-                                if (!regex.hasMatch(value)) {
-                                  return 'Enter a valid email';
-                                }
-                                return null;
-                              },
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  ButtonWidget(buttonText: 'Sign Up', route: Login()),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 40),
+                    child: Text(
+                      'Already have an account? Login',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, color: Colors.black),
                     ),
-                    const SizedBox(
-                      height: 32,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 44),
-                      child: Text(
-                        "By signing  up, you’re agreeing to our  Terms  & Conditions and Privacy Policy",
-                        style: TextStyle(fontSize: 14, color: Colors.black87),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Login()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                CustomTheme.defaultTheme.primaryColor,
-                            minimumSize: const Size.fromHeight(50)),
-                        child: const Text(
-                          "Create Account",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: 'Already have an account? ',
-                          style: Theme.of(context).textTheme.bodySmall,
-                          children: <InlineSpan>[
-                            WidgetSpan(
-                              alignment: PlaceholderAlignment.baseline,
-                              baseline: TextBaseline.alphabetic,
-                              style: TextStyle(
-                                  color: CustomTheme.defaultTheme.primaryColor),
-                              child: const LinkButton(
-                                  urlLabel: "Login", url: "/login"),
-                            ),
-                            const TextSpan(
-                              text: ' and ',
-                            ),
-                            const WidgetSpan(
-                              alignment: PlaceholderAlignment.baseline,
-                              baseline: TextBaseline.alphabetic,
-                              child: LinkButton(
-                                  urlLabel: "Privacy Policy",
-                                  url: "https://example.com/privacy-policy"),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                )),
-          )
-        ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

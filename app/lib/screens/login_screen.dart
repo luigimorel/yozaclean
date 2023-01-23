@@ -1,7 +1,7 @@
 import 'package:apps/screens/otp_screen.dart';
+import 'package:apps/widgets/button.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-
-import '../themes/colors.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,104 +11,108 @@ class Login extends StatefulWidget {
 }
 
 final _phoneController = TextEditingController();
-final _emailController = TextEditingController();
-final _formKey = GlobalKey<FormState>();
 
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 277,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/upper.png"), fit: BoxFit.cover),
-            ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    height: 250,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/upper.png'),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(0, 30, 0, 30),
+                              child: Text(
+                                'Login',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: _phoneController,
+                              keyboardType: TextInputType.number,
+                              style: const TextStyle(
+                                  color: Colors.black87, fontSize: 14),
+                              decoration: InputDecoration(
+                                enabledBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(4)),
+                                    borderSide: BorderSide(color: Colors.grey)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(4)),
+                                    borderSide: BorderSide(color: Colors.grey)),
+                                filled: true,
+                                hintText: '700 000 000',
+                                fillColor: Colors.grey[100],
+                                contentPadding:
+                                    const EdgeInsets.symmetric(horizontal: 12),
+                                prefixIcon: CountryCodePicker(
+                                  initialSelection: '+256',
+                                  favorite: const ['+256', 'UG'],
+                                  textStyle:
+                                      const TextStyle(color: Colors.black54),
+                                  showFlag: true,
+                                ),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter phone number';
+                                }
+                                return null;
+                              },
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  ButtonWidget(buttonText: 'Login', route: OTP()),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 40),
+                    child: Text(
+                      'Don’t have an account yet? Sign Up',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(38, 40, 38, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 24.0),
-                  child: Text(
-                    "Login",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextFormField(
-                      keyboardType: TextInputType.number,
-                      style: const TextStyle(color: Colors.black, fontSize: 14),
-                      decoration: const InputDecoration(
-                        prefixIcon: ImageIcon(
-                          AssetImage(
-                            'icons/flags/png/ug.png',
-                            package: "country_icons",
-                          ),
-                          size: 16,
-                        ),
-                        hintText: '+256',
-                        hintStyle: TextStyle(fontSize: 12),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Please enter phone number";
-                        }
-
-                        final regex = RegExp('[0-9]');
-                        if (!regex.hasMatch(value)) {
-                          return 'Enter a phone number';
-                        }
-                        return null;
-                      },
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const OTP()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                CustomTheme.defaultTheme.primaryColor,
-                            minimumSize: const Size.fromHeight(50)),
-                        child: const Text(
-                          "Login",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 21),
-                  child: Text(
-                    "Don’t have an account yet? Sign Up",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14, color: Colors.black),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
+        ),
       ),
     );
   }

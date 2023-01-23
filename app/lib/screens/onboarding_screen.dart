@@ -13,7 +13,7 @@ class OnboardingScreen extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/background.png"), fit: BoxFit.cover),
+              image: AssetImage('assets/background.png'), fit: BoxFit.cover),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 38),
@@ -23,7 +23,7 @@ class OnboardingScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const Text(
-                  "Welcome to YozaClean",
+                  'Welcome to YozaClean',
                   style: TextStyle(
                       fontSize: 48,
                       color: Colors.white,
@@ -32,7 +32,7 @@ class OnboardingScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                   child: Text(
-                    "Satsifying all your home and business cleaning needs",
+                    'Satsifying all your home and business cleaning needs',
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
@@ -40,7 +40,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 60, 0, 50),
+                  padding: const EdgeInsets.fromLTRB(0, 60, 0, 40),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -52,9 +52,9 @@ class OnboardingScreen extends StatelessWidget {
                         backgroundColor: CustomTheme.defaultTheme.primaryColor,
                         minimumSize: const Size.fromHeight(50)),
                     child: const Text(
-                      "Get Started",
+                      'Get Started',
                       style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.normal),
+                          fontSize: 14, fontWeight: FontWeight.normal),
                     ),
                   ),
                 )
