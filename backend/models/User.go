@@ -8,21 +8,22 @@ import (
 	"time"
 
 	"github.com/badoux/checkmail"
-	"github.com/lib/pq"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
 
 type User struct {
-	ID             uint64         `gorm:"primary_key;auto_increment" json:"id"`
-	Name           string         `gorm:"size:255;not null;" json:"name"`
-	Phone          string         `gorm:"type:text;not null;unique" json:"phone"`
-	Email          string         `gorm:"size:100;not null;unique" json:"email"`
-	Password       string         `gorm:"size:100;" json:"password"` //Updates with the OTP from Firebase
-	Role           string         `gorm:"size:50;default:user;" json:"role"`
-	Avatar         string         `gorm:"size:100;" json:"avatar"`
-	NationalID     string         `gorm:"size:50;" json:"nationalid"`
-	BusinessImages pq.StringArray `gorm:"type:varchar(100)[]" json:"images"`
+	ID         uint64   `gorm:"primary_key;auto_increment" json:"id"`
+	FirstName  string   `gorm:"size:255;not null;" json:"first_name"`
+	LastName   string   `gorm:"size:255;not null;" json:"last_name"`
+	Phone      string   `gorm:"type:text;not null;unique" json:"phone"`
+	Email      string   `gorm:"size:100;not null;unique" json:"email"`
+	Password   string   `gorm:"size:100;" json:"password"` //Updates with the OTP from Firebase
+	Role       string   `gorm:"size:50;default:user;" json:"role"`
+	Avatar     string   `gorm:"size:100;" json:"avatar"`
+	NationalID string   `gorm:"size:50;" json:"nationalid"`
+	Business   Business `json:"business"`
+	//Look at how to do the associations the right way
 }
 
 // Look at how to utilize these below for auth
@@ -97,7 +98,8 @@ func (user *User) BeforeSave(db *gorm.DB) error {
 
 func (user *User) Prepare() {
 	user.ID = 0
-	user.Name = html.EscapeString(strings.TrimSpace(user.Name))
+	user.FirstName = html.EscapeString(strings.TrimSpace(user.FirstName))
+	user.LastName = html.EscapeString(strings.TrimSpace(user.LastName))
 	user.Email = html.EscapeString(strings.TrimSpace(user.Email))
 	user.Phone = html.EscapeString(strings.TrimSpace(user.Phone))
 	user.Avatar = html.EscapeString(strings.TrimSpace(user.Avatar))
@@ -107,8 +109,11 @@ func (user *User) Prepare() {
 func (user *User) Validate(action string) error {
 	switch strings.ToLower(action) {
 	case "update":
-		if user.Name == "" {
-			return errors.New("name is required")
+		if user.FirstName == "" {
+			return errors.New("first name is required")
+		}
+		if user.LastName == "" {
+			return errors.New("first name is required")
 		}
 		if user.Phone == "" {
 			return errors.New("phone number is required")
@@ -142,8 +147,11 @@ func (user *User) Validate(action string) error {
 		return nil
 
 	default:
-		if user.Name == "" {
-			return errors.New("name is required")
+		if user.FirstName == "" {
+			return errors.New("first name is required")
+		}
+		if user.LastName == "" {
+			return errors.New("last name is required")
 		}
 		if user.Phone == "" {
 			return errors.New("phone number is required")

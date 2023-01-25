@@ -1,7 +1,6 @@
 import 'package:apps/screens/business/details.dart';
 import 'package:flutter/material.dart';
 
-import '../themes/colors.dart';
 import '../widgets/business_card.dart';
 import '../widgets/category_card.dart';
 
@@ -17,46 +16,13 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Welcome back',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'Joy',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: CustomTheme.defaultTheme.primaryColor),
-                  child: IconButton(
-                    color: Colors.white,
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'profile');
-                    },
-                    icon: const Icon(Icons.person),
-                  ),
-                )
-              ],
-            ),
             const SizedBox(
-              height: 25,
+              height: 20,
             ),
             Container(
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey.shade100,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const TextField(

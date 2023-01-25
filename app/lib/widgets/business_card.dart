@@ -75,7 +75,7 @@ class BusinessCard extends StatelessWidget {
                   style: const TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,
-                      fontSize: 10),
+                      fontSize: 12),
                 ),
                 const SizedBox(
                   height: 10,
@@ -85,7 +85,7 @@ class BusinessCard extends StatelessWidget {
                   softWrap: true,
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 10,
+                      fontSize: 14,
                       color: Colors.black54),
                 ),
                 const SizedBox(
@@ -104,7 +104,7 @@ class BusinessCard extends StatelessWidget {
                       amount,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 10,
+                          fontSize: 12,
                           color: Colors.black54),
                     ),
                     const Text('/'),

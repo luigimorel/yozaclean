@@ -1,6 +1,8 @@
 import 'package:apps/screens/navigation.dart';
 import 'package:apps/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OTP extends StatefulWidget {
   const OTP({super.key});
@@ -8,6 +10,9 @@ class OTP extends StatefulWidget {
   @override
   State<OTP> createState() => _OTPState();
 }
+
+TextEditingController _otpController = TextEditingController();
+String currentText = '';
 
 class _OTPState extends State<OTP> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -53,47 +58,77 @@ class _OTPState extends State<OTP> {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 45),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    'A 6 digit code has been sent to ',
-                                    softWrap: true,
-                                    style: TextStyle(
-                                        fontSize: 14, color: Colors.black),
-                                  ),
-                                  Text(
-                                    '+256 704 123 321',
-                                    style: TextStyle(
-                                        color: Colors.green,
-                                        decoration: TextDecoration.underline,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 45),
+                              child: Text(
+                                'A 6 digit code has been sent to your phone number ',
+                                softWrap: true,
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: TextFormField(
-                                keyboardType: TextInputType.phone,
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 14),
-                                decoration: const InputDecoration(
-                                    hintText: 'OTP',
-                                    hintStyle: TextStyle(fontSize: 12)),
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter your name';
-                                  }
-                                  return null;
+                              child: PinCodeTextField(
+                                keyboardType: TextInputType.number,
+                                length: 6,
+                                obscureText: false,
+                                animationType: AnimationType.fade,
+                                pinTheme: PinTheme(
+                                  shape: PinCodeFieldShape.underline,
+                                  activeColor: Colors.grey[200],
+                                  selectedColor: Colors.grey[500],
+                                  inactiveColor: Colors.grey[500],
+                                  activeFillColor: Colors.white,
+                                ),
+                                animationDuration:
+                                    const Duration(milliseconds: 300),
+                                controller: _otpController,
+                                onChanged: (value) {
+                                  setState(() {
+                                    currentText = value;
+                                  });
                                 },
+                                beforeTextPaste: (text) {
+                                  return true;
+                                },
+                                appContext: context,
                               ),
                             ),
+                            const SizedBox(
+                              height: 30,
+                            )
                           ],
                         ),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Didn't receive the code? ",
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              String url = "https://www.fluttercampus.com";
+                              if (await canLaunch(url)) {
+                                await launch(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
+                            child: const Text(
+                              'Resend',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      )
                     ],
                   ),
                 ],
