@@ -55,11 +55,11 @@ export default function Navbar() {
                       </Link>
                     ))}
 
-                    <Link href="/">
+                    {/* <Link href="/">
                       <a className="w-full px-6 py-2 mt-3 text-center text-white bg-primary rounded-md lg:ml-5">
                         Create Account
                       </a>
-                    </Link>
+                    </Link> */}
                   </>
                 </Disclosure.Panel>
               </div>
