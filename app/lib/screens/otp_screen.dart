@@ -10,6 +10,10 @@ class OTP extends StatefulWidget {
 }
 
 class _OTPState extends State<OTP> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _formChanged = false;
+  bool _isDefaultFlag = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
