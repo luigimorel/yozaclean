@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       colors: {
         neutral: colors.neutral,
-        primary: "#3cbd96"
+        primary: "#2DAAD8"
+        // primary: "#2596be"
       },
     },
     fontFamily: {
