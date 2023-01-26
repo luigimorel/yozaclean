@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
-                color: Colors.grey.shade100,
+                color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const TextField(
@@ -33,8 +33,9 @@ class HomeScreen extends StatelessWidget {
                       Icons.search,
                       color: Colors.grey,
                     ),
+                    hintStyle: TextStyle(color: Colors.grey),
                     border: InputBorder.none,
-                    hintText: 'Search'),
+                    hintText: 'Enter location'),
               ),
             ),
             const SizedBox(
