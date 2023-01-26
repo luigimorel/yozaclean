@@ -1,6 +1,7 @@
 export default function Container(props) {
   return (
     <div
+      id={props.id}
       className={`container p-4 mx-auto xl:px-0 ${
         props.className ? props.className : ''
       }`}>
