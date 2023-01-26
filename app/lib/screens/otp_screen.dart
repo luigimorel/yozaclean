@@ -2,7 +2,6 @@ import 'package:apps/screens/navigation.dart';
 import 'package:apps/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class OTP extends StatefulWidget {
   const OTP({super.key});
@@ -103,27 +102,17 @@ class _OTPState extends State<OTP> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
+                        children: const [
+                          Text(
                             "Didn't receive the code? ",
                           ),
-                          InkWell(
-                            onTap: () async {
-                              String url = "https://www.fluttercampus.com";
-                              if (await canLaunch(url)) {
-                                await launch(url);
-                              } else {
-                                throw 'Could not launch $url';
-                              }
-                            },
-                            child: const Text(
-                              'Resend',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green,
-                              ),
+                          Text(
+                            'Resend',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green,
                             ),
-                          )
+                          ),
                         ],
                       ),
                       const SizedBox(
