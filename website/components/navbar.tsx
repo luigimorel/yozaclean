@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { Disclosure } from '@headlessui/react';
+import ThemeChanger from './DarkSwitch';
 
 export default function Navbar() {
   const navigation = [
@@ -106,7 +107,7 @@ export default function Navbar() {
               </a>
             </Link> */}
 
-          {/* <ThemeChanger /> */}
+          <ThemeChanger />
         </div>
       </nav>
     </div>
