@@ -11,23 +11,23 @@ import benefitTwoImg from '../public/img/cleaning.svg';
 import benefitOneImg from '../public/img/cleaning1.svg';
 
 const benefitOne = {
-  title: 'Highlight your benefits',
-  desc: 'You can use this space to highlight your first benefit or a feature of your product. It can also contain an image or Illustration like in the example along with some bullet points.',
+  title: 'Benefits',
+  desc: 'With YozaClean, you can rest assured that your home or office will be spotless in no time. Try us out today and see the difference for yourself! With YozaClean, you can be sure that your home or office will be spotless in no time.',
   image: benefitOneImg,
   bullets: [
     {
-      title: 'Understand your customers',
-      desc: 'Then explain the first point breifly in one or two lines.',
+      title: 'Deligent service',
+      desc: 'We strive to offer excellent service to all our customers.',
       icon: <EmojiHappyIcon />,
     },
     {
-      title: 'Improve acquisition',
-      desc: 'Here you can add the next benefit point.',
+      title: 'Guaranteed satsifaction',
+      desc: 'Customer satsifaction is our strength.',
       icon: <ChartSquareBarIcon />,
     },
     {
-      title: 'Drive customer retention',
-      desc: 'This will be your last bullet point in this section.',
+      title: 'Expertise',
+      desc: 'We strive to have the best cleaners on our platform.',
       icon: <CursorClickIcon />,
     },
   ],

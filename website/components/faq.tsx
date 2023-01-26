@@ -35,8 +35,13 @@ export default function Faq() {
 
 const faqdata = [
   {
-    question: 'What is your refund policy? ',
+    question: 'Where do I raise a complaint? ',
     answer:
-      "If you're unhappy with your purchase for any reason, email us within 30 days and we'll refund you in full, no questions asked.",
+      "If you're unhappy with a cleaners for any reason, get in touch with us right away via email info@yozaclean.com.",
+  },
+  {
+    question: 'How can I be assured of safety when cleaners come to my house? ',
+    answer:
+      "We collect the cleaners' identifying details such as ID and location of their businesses that we can use to track them down.",
   },
 ];
