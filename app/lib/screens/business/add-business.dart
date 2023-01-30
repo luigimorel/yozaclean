@@ -122,7 +122,7 @@ class _AddABusinessState extends State<AddABusiness> {
                         ),
                         child: const TextField(
                           maxLength: 30,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.text,
                           cursorColor: Colors.black,
                           style: TextStyle(color: Colors.black87, fontSize: 14),
                           decoration: InputDecoration(
@@ -181,78 +181,6 @@ class _AddABusinessState extends State<AddABusiness> {
                                 color: Colors.grey,
                               ),
                               hintText: 'Website'),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(vertical: 1),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.white,
-                          border: Border.all(),
-                        ),
-                        child: const TextField(
-                          keyboardType: TextInputType.url,
-                          cursorColor: Colors.black,
-                          style: TextStyle(color: Colors.black87, fontSize: 14),
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              prefixIcon: Icon(
-                                Icons.facebook,
-                                size: 20,
-                                color: Colors.grey,
-                              ),
-                              hintText: 'Facebook'),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(vertical: 1),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.white,
-                          border: Border.all(),
-                        ),
-                        child: const TextField(
-                          keyboardType: TextInputType.url,
-                          cursorColor: Colors.black,
-                          style: TextStyle(color: Colors.black87, fontSize: 14),
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              prefixIcon: Icon(
-                                Icons.facebook,
-                                size: 20,
-                                color: Colors.grey,
-                              ),
-                              hintText: 'Twitter'),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(vertical: 1),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.white,
-                          border: Border.all(),
-                        ),
-                        child: const TextField(
-                          keyboardType: TextInputType.url,
-                          cursorColor: Colors.black,
-                          style: TextStyle(color: Colors.black87, fontSize: 14),
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              prefixIcon: Icon(
-                                Icons.facebook,
-                                size: 20,
-                                color: Colors.grey,
-                              ),
-                              hintText: 'Instagram'),
                         ),
                       ),
                       const SizedBox(

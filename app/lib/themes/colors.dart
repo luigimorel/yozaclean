@@ -20,8 +20,8 @@ class CustomTheme {
         textTheme: ButtonTextTheme.primary,
       ),
       textTheme: base.textTheme.copyWith(
-          titleMedium: base.textTheme.titleMedium?.copyWith(color: textColor),
-          headline2: base.textTheme.headline6?.copyWith(color: primaryColor)),
+        titleMedium: base.textTheme.titleMedium?.copyWith(color: textColor),
+      ),
       colorScheme: ColorScheme.fromSwatch().copyWith(secondary: secondaryColor),
     );
   }

@@ -1,8 +1,11 @@
-import 'package:apps/screens/login_screen.dart';
+import 'dart:convert';
+
+import 'package:apps/models/user.dart';
 import 'package:apps/themes/colors.dart';
-import 'package:apps/widgets/button.dart';
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -11,31 +14,67 @@ class SignUp extends StatefulWidget {
   State<SignUp> createState() => _SignUpState();
 }
 
-TextEditingController _phoneController = TextEditingController();
-// String phoneNumber = "";
+Future<UserInput> createUser(
+    String firstName, String lastName, String phoneNumber, String email) async {
+  const String apiUrl = 'http://10.0.2.2:8080/api/v1/register';
 
-// void _onCountryChange(CountryCode countryCode) {
-//   phoneNumber = countryCode.toString();
-//   print("New Country selected: " + countryCode.toString());
-// }
+  final response = await http.post(Uri.parse(apiUrl),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'firstName': firstName,
+        'lastName': lastName,
+        'phone': phoneNumber,
+        'email': email
+      }));
+  if (response.statusCode == 201) {
+    return UserInput.fromJson(json.decode(response.body));
+  } else {
+    throw Exception('Failed to create user.');
+  }
+}
 
-// void check() {
-//   print('Full Text: ' + phoneNumber + _phoneController.text);
-// }
+class UserInput {
+  String firstName;
+  String lastName;
+  String phone;
+  String email;
 
-// final _phoneController = TextEditingController();
+  UserInput(
+      {required this.email,
+      required this.firstName,
+      required this.phone,
+      required this.lastName});
+
+  factory UserInput.fromJson(Map<String, dynamic> json) {
+    return UserInput(
+        phone: json['phone'],
+        firstName: json['firstName'],
+        lastName: json['lastName'],
+        email: json['email']);
+  }
+}
+
+// ignore: unused_element
+UserModel? _user;
+
 final _firstNameController = TextEditingController();
 final _lastNameController = TextEditingController();
 final _emailController = TextEditingController();
+TextEditingController _phoneController = TextEditingController();
+
+late Future<User> _futureUserInput;
+
 final _formKey = GlobalKey<FormState>();
 
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
+        body: SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
@@ -68,7 +107,7 @@ class _SignUpState extends State<SignUp> {
                                     children: [
                                       TextFormField(
                                         controller: _firstNameController,
-                                        keyboardType: TextInputType.phone,
+                                        keyboardType: TextInputType.text,
                                         style: const TextStyle(
                                             color: Colors.black87,
                                             fontSize: 14),
@@ -107,7 +146,7 @@ class _SignUpState extends State<SignUp> {
                                       ),
                                       TextFormField(
                                         controller: _lastNameController,
-                                        keyboardType: TextInputType.phone,
+                                        keyboardType: TextInputType.text,
                                         style: const TextStyle(
                                             color: Colors.black87,
                                             fontSize: 14),
@@ -148,7 +187,7 @@ class _SignUpState extends State<SignUp> {
                                       ),
                                       TextFormField(
                                         controller: _phoneController,
-                                        keyboardType: TextInputType.number,
+                                        keyboardType: TextInputType.phone,
                                         style: const TextStyle(
                                             color: Colors.black87,
                                             fontSize: 14),
@@ -253,22 +292,51 @@ class _SignUpState extends State<SignUp> {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  ButtonWidget(buttonText: 'Sign Up', route: Login()),
+                children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 40),
-                    child: Text(
-                      'Already have an account? Login',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14, color: Colors.black),
+                    padding: const EdgeInsets.symmetric(horizontal: 38),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              var firstname = _firstNameController.text;
+                              var lastname = _lastNameController.text;
+                              var phoneNo = '+256${_phoneController.text}';
+                              var email = _emailController.text;
+
+                              setState(() {
+                                createUser(firstname, lastname, phoneNo, email);
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    CustomTheme.defaultTheme.primaryColor,
+                                minimumSize: const Size.fromHeight(50)),
+                            child: const Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.normal),
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 40),
+                          child: Text(
+                            'Already have an account? Login',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 14, color: Colors.black),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                  )
                 ],
               ),
-            ],
-          ),
-        ),
+            ]),
       ),
-    );
+    ));
   }
 }
