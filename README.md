@@ -65,3 +65,4 @@ I want to focus on job hunting. I know the market is crazy right now but if you 
 - [] Add GIS searching
 - [] Add the admin panel for user and business management
 - [] Add admin/user management routes
+- [] Add tests for the app and backend
