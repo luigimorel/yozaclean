@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:apps/models/user.dart';
+import 'package:apps/screens/navigation.dart';
 import 'package:apps/themes/colors.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -63,8 +63,6 @@ final _firstNameController = TextEditingController();
 final _lastNameController = TextEditingController();
 final _emailController = TextEditingController();
 TextEditingController _phoneController = TextEditingController();
-
-late Future<User> _futureUserInput;
 
 final _formKey = GlobalKey<FormState>();
 
@@ -136,7 +134,7 @@ class _SignUpState extends State<SignUp> {
                                                 const Icon(Icons.person)),
                                         validator: (value) {
                                           if (value == null || value.isEmpty) {
-                                            return 'Please enter your first name';
+                                            return 'Please enter a valid first name';
                                           }
                                           return null;
                                         },
@@ -310,6 +308,14 @@ class _SignUpState extends State<SignUp> {
                               setState(() {
                                 createUser(firstname, lastname, phoneNo, email);
                               });
+                              // ignore: todo
+                              //TODO: Show backend error if email or phone number exists
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MainNavigation()),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor:
