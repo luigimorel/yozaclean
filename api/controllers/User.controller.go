@@ -28,8 +28,14 @@ func checkIfUserExists(userId string) bool {
 	return user.ID != 0
 }
 
+// @Title Get Users
+// @Description fetches all users
+// @Accept  json
+// @Produce  json
+// @Param   body     body    models.User   true        "User JSON Object"
+// @Success 200 {object} models.User    "Returns created User"
+// @Failure 400 {object} string "Bad Request"
 func GetUsers(w http.ResponseWriter, r *http.Request) {
-
 	var users []models.User
 	config.DB.Find(&users)
 	w.Header().Set("Content-Type", "application/json")

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html"
 	"strings"
-	"time"
 
 	"github.com/badoux/checkmail"
 	"golang.org/x/crypto/bcrypt"
@@ -13,35 +12,15 @@ import (
 )
 
 type User struct {
-	ID         uint64   `gorm:"primary_key;auto_increment" json:"id"`
-	FirstName  string   `gorm:"size:255;not null;" json:"first_name"`
-	LastName   string   `gorm:"size:255;not null;" json:"last_name"`
-	Phone      string   `gorm:"type:text;not null;unique" json:"phone"`
-	Email      string   `gorm:"size:100;not null;unique" json:"email"`
-	Password   string   `gorm:"size:100;" json:"password"` //Updates with the OTP from Firebase
-	Role       string   `gorm:"size:50;default:user;" json:"role"`
-	Avatar     string   `gorm:"size:100;" json:"avatar"`
-	NationalID string   `gorm:"size:50;" json:"nationalid"`
-	Business   Business `json:"business"`
-	//Look at how to do the associations the right way
-}
-
-// Look at how to utilize these below for auth
-type SignUpInput struct {
-	Name     string `json:"name" binding:"required"`
-	Email    string `json:"email" binding:"required"`
-	Phone    string `gorm:"type:text;not null;unique" json:"phone"`
-	Password string `json:"password" binding:"required,min=8"`
-}
-
-type UserResponse struct {
-	ID        uint32    `json:"id,omitempty"`
-	Name      string    `json:"name,omitempty"`
-	Email     string    `json:"email,omitempty"`
-	Role      string    `json:"role,omitempty"`
-	Provider  string    `json:"provider"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	ID         uint64 `gorm:"primary_key;auto_increment" json:"id"`
+	FirstName  string `gorm:"size:255;not null;" json:"firstName"`
+	LastName   string `gorm:"size:255;not null;" json:"lastName"`
+	Phone      string `gorm:"type:text;not null;unique" json:"phone"`
+	Email      string `gorm:"size:100;unique" json:"email"`
+	Password   string `gorm:"size:100;" json:"password"` //Updates with the OTP from Firebase
+	Role       string `gorm:"size:50;default:user;" json:"role"`
+	Avatar     string `gorm:"size:100;" json:"avatar"`
+	NationalID string `gorm:"size:50;" json:"nationalid"`
 }
 
 func Hash(password string) ([]byte, error) {

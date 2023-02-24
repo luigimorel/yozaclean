@@ -1,0 +1,27 @@
+definitions:
+  models.User:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      firstName:
+        type: string
+      id:
+        type: integer
+      lastName:
+        type: string
+      nationalid:
+        type: string
+      password:
+        description: Updates with the OTP from Firebase
+        type: string
+      phone:
+        type: string
+      role:
+        type: string
+    type: object
+info:
+  contact: {}
+paths: {}
+swagger: "2.0"

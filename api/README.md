@@ -17,7 +17,7 @@ docker pull redis
 
 ```bash
 
-$   docker run --name postgres -e POSTGRES_HOST_AUTH_METHOD=trust -v pgdata:/var/lib/postgresql/data -p 5432:5432 -d postgres/postgres
+$   docker run --name postgres -d postgres/postgres
 
 ```
 
@@ -27,21 +27,20 @@ $   docker run --name postgres -e POSTGRES_HOST_AUTH_METHOD=trust -v pgdata:/var
  docker exec -it postgres sh
   $ su - postgres
   $ psql
-  $ postgres=# create database yozaclean_dev;
-  $ postgres=# create database yozaclean_test;
+  $ postgres=# create database yozaclean;
   $ postgres=#
 ```
 
 5. Install redis
 
 ```bash
-docker run --name redis -p 6379:6379 -d redis:alpine
+docker run --name redis -d redis:alpine
 
 ```
 
 6. Add environment variables
 
-Copy the `.env.example` file and replace with the right values from Gitlab CI environment variables
+Copy the `.env.example` file and replace with the right values
 
 ```bash
  cp .env.example .env
@@ -51,7 +50,12 @@ Copy the `.env.example` file and replace with the right values from Gitlab CI en
 7. Install dependencies
 
 ```bash
+# Depends on your Go version
 go get
+
+or
+
+go install
 
 ```
 

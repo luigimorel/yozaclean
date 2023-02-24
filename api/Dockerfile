@@ -10,8 +10,7 @@ COPY go.mod go.sum  ./
 
 RUN go mod download
 
-COPY ./cmd/server/main.go ./cmd/main.go
-COPY ./internal/ ./internal/
+COPY ./main.go ./cmd/main.go
 
 RUN go build -o ./server ./cmd/main.go
 
@@ -22,7 +21,8 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 COPY --from=0 /app/server ./
-COPY ./config/ ./config/
+
+COPY .env ./
 
 EXPOSE 8080
 
